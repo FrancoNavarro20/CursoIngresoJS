@@ -28,7 +28,5 @@ function mostrarAumento() {
 
     txtIdResultado.value = resultado;
 
-
-
     //Promedio es la suma total de todos los numeros , dividido por la cantidad de numeros que ingrese!!!
 }
