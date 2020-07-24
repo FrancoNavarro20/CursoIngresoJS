@@ -8,13 +8,16 @@ E.	Si el importe final con descuento suma más de $120  se debe sumar un 10% de 
  ”Usted pago X de IIBB.”, siendo X el impuesto que se pagó. 
 
  */
-function CalcularPrecio() {
+function CalcularPrecio() 
+{
 
-    let cantidadLamparas;
-    let precioFijo;
-    let marcaLamparas;
-    let precioDescuento;
-    
+    var cantidadLamparas;
+    var precioFijo;
+    var marcaLamparas;
+    var precioDescuento;
+    var importe;
+    var impuesto;
+
     cantidadLamparas = txtIdCantidad.value;
     cantidadLamparas = parseInt(cantidadLamparas);
 
@@ -27,21 +30,92 @@ function CalcularPrecio() {
 
     if(cantidadLamparas > 5)
     {
-    	precioDescuento = (precioFijo * cantidadLamparas) / 2;
-
-    	txtIdprecioDescuento.value = precioDescuento;
-    }else
+    	precioDescuento = (precioFijo * cantidadLamparas * 50) / 100;
+        importe = (precioFijo * cantidadLamparas) - precioDescuento;
+    	
+    }
+    if(cantidadLamparas == 5 && marcaLamparas == "ArgentinaLuz")
     {
-    	if(cantidadLamparas == 5 && marcaLamparas == "ArgentinaLuz")
-    	{
     		precioDescuento = (precioFijo * cantidadLamparas * 40) / 100;
     		
-    		txtIdprecioDescuento.value = (precioFijo * cantidadLamparas) - precioDescuento;
-    	}else
-    	{
-    		precioDescuento = (precioFijo * cantidadLamparas * 30) / 100;
-    		
-    		txtIdprecioDescuento.value = (precioFijo * cantidadLamparas) - precioDescuento;
-    	}
+    		importe= (precioFijo * cantidadLamparas) - precioDescuento;
     }
-}
+    else
+    {       if(cantidadLamparas == 5 && marcaLamparas != "ArgentinaLuz")
+    		{
+                precioDescuento = (precioFijo * cantidadLamparas * 30) / 100;
+    		
+    		    importe = (precioFijo * cantidadLamparas) - precioDescuento;
+            }
+            else
+            {
+                if(cantidadLamparas == 4)
+                {
+                     /*precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
+                     importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                     */
+                     if(marcaLamparas == "ArgentinaLuz" || marcaLamparas == "FelipeLamparas")
+                     {
+                            precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
+                            importe = (precioFijo * cantidadLamparas) - precioDescuento;   
+                     }
+                }
+                else
+                {
+                    if(cantidadLamparas == 4) 
+                    {
+                         precioDescuento = (precioFijo * cantidadLamparas * 20) / 100;
+                         importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                    }
+                    else
+                    {
+                        if(cantidadLamparas == 3 && marcaLamparas == "ArgentinaLuz")
+                        {
+                            precioDescuento = (precioFijo * cantidadLamparas * 15) / 100;
+                            importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                        }
+                        else
+                        {
+                            if(cantidadLamparas == 3 && marcaLamparas == "FelipeLamparas")
+                            {
+                                precioDescuento = (precioFijo * cantidadLamparas * 10) / 100;
+                                importe = (precioFijo * cantidadLamparas)- precioDescuento;
+                            }
+                            else
+                            {
+                                if(cantidadLamparas == 3) 
+                                {
+                                    precioDescuento = (precioFijo * cantidadLamparas * 5) / 100;
+                                    importe = (precioFijo * cantidadLamparas)- precioDescuento;
+                                }
+                                else
+                                {
+                                    if(importe > 120)
+                                    {
+                                        importe = importe * 1.1;
+                                        impuesto = importe / 10;
+                                       
+                                        alert("IIBB Usted pago $" + importe.toFixed(2) +", siendo  el impuesto que se pagó $" +impuesto.toFixed(2)+ " .");
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+	}
+
+    txtIdprecioDescuento.value = importe.toFixed(2);
+   
+}    
+/*
+  if( !(cantidadLamparas != 4 && marcaLamparas != "ArgentinaLuz" || marcaLamparas != "FelipeLamparas"))
+                {
+                     /*precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
+                     importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                     
+                     if()
+                     {
+
+                     }
+*/
