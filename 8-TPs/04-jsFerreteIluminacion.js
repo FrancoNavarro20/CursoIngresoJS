@@ -28,24 +28,28 @@ function CalcularPrecio()
    //Hay que usar 2 if solamente!!!!!
    //Uno chiquito y otro grande !!!!!
 
-    if(cantidadLamparas > 5)
+
+if(cantidadLamparas > 5)
     {
-    	precioDescuento = (precioFijo * cantidadLamparas * 50) / 100;
+        precioDescuento = (precioFijo * cantidadLamparas * 50) / 100;
         importe = (precioFijo * cantidadLamparas) - precioDescuento;
-    	
-    }
-    if(cantidadLamparas == 5 && marcaLamparas == "ArgentinaLuz")
-    {
-    		precioDescuento = (precioFijo * cantidadLamparas * 40) / 100;
-    		
-    		importe= (precioFijo * cantidadLamparas) - precioDescuento;
+        
     }
     else
-    {       if(cantidadLamparas == 5 && marcaLamparas != "ArgentinaLuz")
-    		{
+    {
+        if(cantidadLamparas == 5 && marcaLamparas == "ArgentinaLuz")
+        {
+            precioDescuento = (precioFijo * cantidadLamparas * 40) / 100;
+            
+            importe= (precioFijo * cantidadLamparas) - precioDescuento;
+        }
+        else
+        {       
+            if(cantidadLamparas == 5 && marcaLamparas != "ArgentinaLuz")
+            {
                 precioDescuento = (precioFijo * cantidadLamparas * 30) / 100;
-    		
-    		    importe = (precioFijo * cantidadLamparas) - precioDescuento;
+            
+                importe = (precioFijo * cantidadLamparas) - precioDescuento;
             }
             else
             {
@@ -54,6 +58,96 @@ function CalcularPrecio()
                      /*precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
                      importe = (precioFijo * cantidadLamparas) - precioDescuento;
                      */
+                     if(marcaLamparas == "ArgentinaLuz" || marcaLamparas == "FelipeLamparas")
+                     {
+                            precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
+                            importe = (precioFijo * cantidadLamparas) - precioDescuento;   
+                     }
+                }
+                else
+                {
+                    if(cantidadLamparas == 4) 
+                    {
+                         precioDescuento = (precioFijo * cantidadLamparas * 20) / 100;
+                         importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                    }
+                     else
+                    {
+                        if(cantidadLamparas == 3 && marcaLamparas == "ArgentinaLuz")
+                        {
+                            precioDescuento = (precioFijo * cantidadLamparas * 15) / 100;
+                            importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                        }
+                        else
+                        {
+                            if(cantidadLamparas == 3 && marcaLamparas == "FelipeLamparas")
+                            {
+                                precioDescuento = (precioFijo * cantidadLamparas * 10) / 100;
+                                importe = (precioFijo * cantidadLamparas)- precioDescuento;
+                            }
+                            else
+                            {
+                                if(cantidadLamparas == 3) 
+                                {
+                                    precioDescuento = (precioFijo * cantidadLamparas * 5) / 100;
+                                    importe = (precioFijo * cantidadLamparas)- precioDescuento;
+                                }
+                            }
+                        }
+                    }       
+                }
+            }   
+        }
+    }       
+    if(importe > 120)
+    {
+        importe = importe * 1.1;
+        impuesto = importe / 10;                                       
+        alert("IIBB Usted pago $" + importe.toFixed(2) +", siendo  el impuesto que se pagó $" +impuesto.toFixed(2)+ " .");
+    }
+
+    txtIdprecioDescuento.value = importe.toFixed(2);
+   
+}    
+/*
+  if( !(cantidadLamparas != 4 && marcaLamparas != "ArgentinaLuz" || marcaLamparas != "FelipeLamparas"))
+                {
+                     /*precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
+                     importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                     
+                     if()
+                     {
+
+                     }
+
+/*
+    if(cantidadLamparas > 5)
+    {
+        precioDescuento = (precioFijo * cantidadLamparas * 50) / 100;
+        importe = (precioFijo * cantidadLamparas) - precioDescuento;
+        
+    }
+    if(cantidadLamparas == 5 && marcaLamparas == "ArgentinaLuz")
+    {
+            precioDescuento = (precioFijo * cantidadLamparas * 40) / 100;
+            
+            importe= (precioFijo * cantidadLamparas) - precioDescuento;
+    }
+    else
+    {       if(cantidadLamparas == 5 && marcaLamparas != "ArgentinaLuz")
+            {
+                precioDescuento = (precioFijo * cantidadLamparas * 30) / 100;
+            
+                importe = (precioFijo * cantidadLamparas) - precioDescuento;
+            }
+            else
+            {
+                if(cantidadLamparas == 4)
+                {
+                     /*precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
+                     importe = (precioFijo * cantidadLamparas) - precioDescuento;
+                     */
+                     /*
                      if(marcaLamparas == "ArgentinaLuz" || marcaLamparas == "FelipeLamparas")
                      {
                             precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
@@ -103,19 +197,7 @@ function CalcularPrecio()
                     }
                 }
             }
-	}
-
-    txtIdprecioDescuento.value = importe.toFixed(2);
-   
-}    
-/*
-  if( !(cantidadLamparas != 4 && marcaLamparas != "ArgentinaLuz" || marcaLamparas != "FelipeLamparas"))
-                {
-                     /*precioDescuento = (precioFijo * cantidadLamparas * 25) / 100;
-                     importe = (precioFijo * cantidadLamparas) - precioDescuento;
+    }
+*/
                      
-                     if()
-                     {
-
-                     }
 */
