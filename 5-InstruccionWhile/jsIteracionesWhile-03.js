@@ -7,19 +7,7 @@ function mostrar()
 	
 	while(claveIngresada != "utn750")
 	{
-
-		if(claveIngresada != "utn750")
-		{ 
- 			claveIngresada = prompt("ingrese el número clave.");
-		}
-		else
-		{
-			if(claveIngresada == "utn750")
-			{
-				alert("Contraseña correcta");
-			}
-		}
+		claveIngresada = prompt("Re-ingrese el número clave");
 	}
-
-	alert("Se rompio el bucle, contraseña correcta");
+	alert("Ingreso");
 }//FIN DE LA FUNCIÓN
